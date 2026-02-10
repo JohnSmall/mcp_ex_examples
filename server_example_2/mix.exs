@@ -21,7 +21,7 @@ defmodule ServerExample2.MixProject do
   defp deps do
     [
       # Use path dep for local development; switch to hex for production:
-      # {:mcp_ex, "~> 0.2"}
+      # {:mcp_ex, "~> 0.2.2"}
       {:mcp_ex, path: "../../mcp_ex"},
       {:req, "~> 0.5"},
       {:plug, "~> 1.16"},
