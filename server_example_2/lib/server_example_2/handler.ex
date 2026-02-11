@@ -135,25 +135,23 @@ defmodule ServerExample2.Handler do
         # Request LLM sampling from the client — the key async/bidirectional feature
         ToolContext.log(ctx, "info", "Requesting LLM analysis via sampling...")
 
+        # The server's default request_timeout (30s) will reply {:error, :timeout}
+        # before the GenServer.call's default 60s timeout, so this returns normally.
         sampling_result =
-          ToolContext.request_sampling(
-            ctx,
-            %{
-              "messages" => [
-                %{
-                  "role" => "user",
-                  "content" => %{
-                    "type" => "text",
-                    "text" =>
-                      "Please analyze the following note and provide a brief summary:\n\n" <>
-                        "Title: #{note.title}\nContent: #{note.content}\nTags: #{Enum.join(note.tags, ", ")}"
-                  }
+          ToolContext.request_sampling(ctx, %{
+            "messages" => [
+              %{
+                "role" => "user",
+                "content" => %{
+                  "type" => "text",
+                  "text" =>
+                    "Please analyze the following note and provide a brief summary:\n\n" <>
+                      "Title: #{note.title}\nContent: #{note.content}\nTags: #{Enum.join(note.tags, ", ")}"
                 }
-              ],
-              "maxTokens" => 200
-            },
-            5_000
-          )
+              }
+            ],
+            "maxTokens" => 200
+          })
 
         ToolContext.send_progress(ctx, 2, 3)
 

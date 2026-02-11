@@ -31,7 +31,7 @@ defmodule ClientExample1.Demo do
         transport:
           {MCP.Transport.Stdio,
            command: "/bin/sh",
-           args: ["-c", "cd #{server_path} && mix run --no-halt"]},
+           args: ["-c", "cd #{server_path} && mix run --no-halt 2>/dev/null"]},
         client_info: %{name: "client-example-1", version: "0.1.0"},
         notification_handler: fn method, params ->
           IO.puts("  [stdio notification] #{method}: #{inspect(params)}")

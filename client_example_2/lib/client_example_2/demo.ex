@@ -31,7 +31,7 @@ defmodule ClientExample2.Demo do
         transport:
           {MCP.Transport.Stdio,
            command: "/bin/sh",
-           args: ["-c", "cd #{server_path} && mix run --no-halt"]},
+           args: ["-c", "cd #{server_path} && mix run --no-halt 2>/dev/null"]},
         client_info: %{name: "client-example-2", version: "0.1.0"},
         on_roots_list: fn _params ->
           IO.puts("  [roots] Server requested roots list")
