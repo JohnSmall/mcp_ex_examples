@@ -70,15 +70,15 @@ Expected output:
 
 ```bash
 # Terminal 1: Start HTTP server
-cd /workspace/mcp_ex_examples/server_example_2
+cd /workspace/elixir_code/mcp_ex_examples/server_example_2
 mix deps.get && mix run --no-halt
 
 # Terminal 2: Run basic client
-cd /workspace/mcp_ex_examples/client_example_1
+cd /workspace/elixir_code/mcp_ex_examples/client_example_1
 mix deps.get && mix run run.exs
 
 # Terminal 3: Run advanced client
-cd /workspace/mcp_ex_examples/client_example_2
+cd /workspace/elixir_code/mcp_ex_examples/client_example_2
 mix deps.get && mix run run.exs
 ```
 
